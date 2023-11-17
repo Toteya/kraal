@@ -2,9 +2,10 @@
 """
 Contains the class definition of a product
 """
+from models.base_model import BaseModel
 
 
-class Product(Base):
+class User(BaseModel):
     """
     A product
     """

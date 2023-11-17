@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-contains the base_model class definition
+contains the BaseModel class definition
 """
 import uuid
 from datetime import datetime

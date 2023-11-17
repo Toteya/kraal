@@ -23,7 +23,9 @@ class TestBaseModel(unittest.TestCase):
         """
         Tears down / resets the conditions for the tests
         """
-        pass
+        del self.b1
+        del self.b2
+        super().tearDown()
 
     def test_BaseModel(self):
         """
@@ -33,7 +35,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertIsInstance(bm.created_at, datetime)
         self.assertEqual(bm.updated_at, bm.created_at)
         self.assertNotEqual(bm.id, self.b1.id)
-    
+
     def test_update(self):
         """
         Tests the method that updates the attributes
@@ -41,4 +43,3 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(self.b1.created_at, self.b1.updated_at)
         self.b1.update()
         self.assertNotEqual(self.b1.created_at, self.b1.updated_at)
-
