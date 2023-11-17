@@ -18,12 +18,12 @@ class TestProduct(unittest.TestCase):
         """
         self.p1 = User()
         pass
-    
+
     def tearDown(self):
         """
         Tears down changes after each test
         """
-        return super().tearDown()
+        super().tearDown()
 
     def test_Product(self):
         """

@@ -18,7 +18,7 @@ class TestUser(unittest.TestCase):
         """
         self.user1 = Order()
         pass
-    
+
     def tearDown(self):
         """
         Tears down changes after each test

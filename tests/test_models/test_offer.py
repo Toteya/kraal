@@ -11,7 +11,7 @@ class TestOffer(unittest.TestCase):
     """
     Tests the Offer class
     """
-    
+
     def setUp(self):
         """
         Sets up the initial conditions for each test case
@@ -20,10 +20,10 @@ class TestOffer(unittest.TestCase):
 
     def tearDown(self):
         """
-        Cleans up test conditions and resources that were 
+        Cleans up test conditions and resources that were
         """
         super().tearDown()
-    
+
     def test_Offer(self):
         """
         Tests the instantiation of a Offer instance

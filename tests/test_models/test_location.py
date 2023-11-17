@@ -18,7 +18,7 @@ class TestLocation(unittest.TestCase):
         """
         self.loc1 = Location()
         pass
-    
+
     def tearDown(self):
         """
         Tears down changes after each test
@@ -27,6 +27,7 @@ class TestLocation(unittest.TestCase):
 
     def test_Location(self):
         """
-        Tests that a Location instance is instantiated and initialised correctly
+        Tests that a Location instance is instantiated and
+        initialised correctly
         """
         self.assertIsInstance(self.loc1, BaseModel)
