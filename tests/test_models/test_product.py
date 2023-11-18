@@ -3,7 +3,7 @@
 Contains test for the product class
 """
 from models.base_model import BaseModel
-from models.product import User
+from models.product import Product
 import unittest
 
 
@@ -16,7 +16,7 @@ class TestProduct(unittest.TestCase):
         """
         Sets up the initial conditions for each test case
         """
-        self.p1 = User()
+        self.p1 = Product()
         pass
 
     def tearDown(self):

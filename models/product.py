@@ -2,11 +2,13 @@
 """
 Contains the class definition of a product
 """
-from models.base_model import BaseModel
+from models.base_model import Base, BaseModel
+from sqlalchemy import Column, String
 
-
-class User(BaseModel):
+class Product(BaseModel, Base):
     """
     A product
     """
-    name = ""
+    __tablename__ = 'products'
+
+    name = Column('name', String(45))

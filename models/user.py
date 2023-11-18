@@ -11,22 +11,11 @@ class User(BaseModel, Base):
     """
     __tablename__ = 'users'
 
-    username = Column('username', String(45), nullable=False)
-    first_name = Column('first_name', String(45), nullable=False)
-    last_name = Column('last_name', String(45), nullable=False)
-    email = Column('email', String(45), nullable=False)
-    password = Column('password', String(45), nullable=False)
-    location_id = Column('location_id', String(45), ForeignKey('locations.id'),
-                         nullable=False)
+    username = Column('username', String(45))
+    first_name = Column('first_name', String(45))
+    last_name = Column('last_name', String(45))
+    email = Column('email', String(45))
+    password = Column('password', String(45))
+    # location_id = Column('location_id', String(45), ForeignKey('locations.id'),
+    #                     nullable=False)
     guest_account = Column('guest_account', Boolean, default=True)
-
-    
-    """
-    username = ""
-    first_name = ""
-    last_name = ""
-    email = ""
-    password = ""
-    location_id = ""
-    guest = False
-    """
