@@ -4,6 +4,7 @@ contains the BaseModel class definition
 """
 import uuid
 from datetime import datetime
+from sqlalchemy import Column, DateTime, String
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
@@ -13,9 +14,15 @@ class BaseModel():
     The parent class for all objects used in the project       
     """
 
-    id = ""
-    created_at = ""
-    updated_at = ""
+    id = Column('id', String(45), primary_key=True, nullable=False)
+    created_at = Column('created_at',
+                        DateTime,
+                        default=datetime.utcnow,
+                        nullable=False)
+    updated_at = Column('updated_at',
+                        DateTime,
+                        default=datetime.utcnow,
+                        nullable=False)
 
     def __init__(self, *args, **kwargs):
         self.id = str(uuid.uuid4())

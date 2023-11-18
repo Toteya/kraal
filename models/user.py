@@ -2,12 +2,25 @@
 """
 contains the User class definition
 """
-from models.base_model import BaseModel
+from models.base_model import Base, BaseModel
+from sqlalchemy import Boolean, Column, ForeignKey, String
 
-
-class User(BaseModel):
+class User(BaseModel, Base):
     """
     Defines a User account object
+    """
+    __tablename__ = 'users'
+
+    username = Column('username', String(45), nullable=False)
+    first_name = Column('first_name', String(45), nullable=False)
+    last_name = Column('last_name', String(45), nullable=False)
+    email = Column('email', String(45), nullable=False)
+    password = Column('password', String(45), nullable=False)
+    location_id = Column('location_id', String(45), ForeignKey('locations.id'),
+                         nullable=False)
+    guest_account = Column('guest_account', Boolean, default=True)
+
+    
     """
     username = ""
     first_name = ""
@@ -16,3 +29,4 @@ class User(BaseModel):
     password = ""
     location_id = ""
     guest = False
+    """
