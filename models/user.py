@@ -5,7 +5,7 @@ contains the User class definition
 from models.base_model import BaseModel
 
 
-class Order(BaseModel):
+class User(BaseModel):
     """
     Defines a User account object
     """

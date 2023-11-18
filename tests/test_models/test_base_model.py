@@ -31,10 +31,28 @@ class TestBaseModel(unittest.TestCase):
         """
         Tests that that a BaseModel instance is created correctly
         """
-        bm = BaseModel()
-        self.assertIsInstance(bm.created_at, datetime)
-        self.assertEqual(bm.updated_at, bm.created_at)
-        self.assertNotEqual(bm.id, self.b1.id)
+        
+        bm1 = BaseModel()
+        self.assertIsInstance(bm1.created_at, datetime)
+        self.assertEqual(bm1.updated_at, bm1.created_at)
+        self.assertIsInstance(bm1.id, str)
+        self.assertNotEqual(bm1.id, self.b1.id)
+        
+        bm2_dict = {
+                'id': '1b3c52b7-1981-4e81-a75e-63af749ecb54',
+                'created_at': '2023-11-18T10:46:06.603808',
+                'updated_at': '2023-11-18T10:46:06.603808',
+                '__class__': 'BaseModel',
+                'random_attribute': 'random'
+            }
+        bm3 = BaseModel(**bm2_dict)
+        self.assertNotIn('__class__', bm3.__dict__)
+        self.assertNotIn('random_attribute', bm3.__dict__)
+        self.assertIsInstance(bm3.created_at, datetime)
+        self.assertIsInstance(bm3.updated_at, datetime)
+        self.assertEqual(bm3.created_at.day, 18)
+        self.assertEqual(bm3.created_at.hour, 10)
+        self.assertEqual(bm3.created_at.minute, 46)
 
     def test_update(self):
         """
@@ -43,3 +61,14 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(self.b1.created_at, self.b1.updated_at)
         self.b1.update()
         self.assertNotEqual(self.b1.created_at, self.b1.updated_at)
+    
+    def test_to_dict(self):
+        """
+        Tests the method that returns a dictionary representation of an
+        instance
+        """
+        b1_dict = self.b1.to_dict()
+        self.assertIsInstance(b1_dict, dict)
+        self.assertEqual(b1_dict['__class__'], self.b1.__class__.__name__)
+        self.assertIsInstance(b1_dict['created_at'], str)
+        self.assertIsInstance(b1_dict['updated_at'], str)
