@@ -60,7 +60,7 @@ class TestBaseModel(unittest.TestCase):
         """
         self.assertEqual(self.b1.created_at, self.b1.updated_at)
         self.b1.update()
-        self.assertNotEqual(self.b1.created_at, self.b1.updated_at)
+        self.assertGreater(self.b1.updated_at, self.b1.created_at)
     
     def test_to_dict(self):
         """

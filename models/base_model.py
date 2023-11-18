@@ -4,7 +4,9 @@ contains the BaseModel class definition
 """
 import uuid
 from datetime import datetime
+from sqlalchemy.ext.declarative import declarative_base
 
+Base = declarative_base()
 
 class BaseModel():
     """
@@ -49,3 +51,15 @@ class BaseModel():
         dictionary['updated_at'] = datetime.isoformat(self.updated_at)
         dictionary['__class__'] = self.__class__.__name__
         return dictionary
+    
+    def save(self):
+        """
+        Saves an instance and any changes to the storage engine
+        """
+        pass
+
+    def delete(self):
+        """
+        Deletes an instance from the storage engine
+        """
+        pass
