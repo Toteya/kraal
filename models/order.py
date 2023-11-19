@@ -4,6 +4,7 @@ Contains the Order class definition
 """
 from models.base_model import Base, BaseModel, Column
 from sqlalchemy import Boolean, ForeignKey, String
+from sqlalchemy.orm import relationship
 
 
 class Order(BaseModel, Base):

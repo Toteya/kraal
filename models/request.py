@@ -4,6 +4,7 @@ Contains the definition for the Request class
 """
 from models.base_model import Base, BaseModel, Column
 from sqlalchemy import Date, ForeignKey, Integer, SmallInteger, String
+from sqlalchemy.orm import relationship
 
 
 class Request(BaseModel, Base):
@@ -17,3 +18,5 @@ class Request(BaseModel, Base):
     quantity = Column('quantity', Integer)
     supply_by_date = Column('supply_by_date', Date)
     location_search_radius = Column('location_search_radius', SmallInteger)
+
+    offers = relationship('Offer', backref='request')

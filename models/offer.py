@@ -4,6 +4,7 @@ Contains the Offer class defintion
 """
 from models.base_model import Base, BaseModel, Column
 from sqlalchemy import Float, ForeignKey, String
+from sqlalchemy.orm import relationship
 
 
 class Offer(BaseModel, Base):
@@ -17,3 +18,5 @@ class Offer(BaseModel, Base):
     request_id = Column('request_id', String(45), ForeignKey('requests.id'))
     price = Column('price', Float)
     delivery_fee = Column('delivery_fee', Float)
+
+    order = relationship('Order', backref='offer', uselist=False)
