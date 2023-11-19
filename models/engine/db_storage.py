@@ -8,6 +8,7 @@ from sqlalchemy.orm import scoped_session, sessionmaker
 from os import environ
 from models.location import Location
 from models.offer import Offer
+from models.order import Order
 from models.product import Product
 from models.request import Request
 from models.user import User
@@ -21,11 +22,11 @@ class DBStorage:
     __engine = None
     __session = None
     __classes = {
-        # 'location': Location,
-        # 'offer': Offer,
-        # 'order': Order,
+        'location': Location,
+        'offer': Offer,
+        'order': Order,
         'product': Product,
-        # 'request': Request,
+        'request': Request,
         'user': User
     }
 

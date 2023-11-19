@@ -4,6 +4,7 @@ contains the User class definition
 """
 from models.base_model import Base, BaseModel, Column
 from sqlalchemy import Boolean, ForeignKey, String
+from sqlalchemy.orm import relationship
 
 
 class User(BaseModel, Base):
@@ -21,3 +22,7 @@ class User(BaseModel, Base):
                          String(45),
                          ForeignKey('locations.id'))
     guest_account = Column('guest_account', Boolean, default=True)
+
+    requests = relationship('Request', backref='user', cascade='all, delete')
+    offers = relationship('Offer', backref='user', cascade='all, delete')
+    location = relationship('Location', back_populates='user')

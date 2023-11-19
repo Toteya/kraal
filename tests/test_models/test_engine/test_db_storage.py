@@ -41,9 +41,13 @@ class TestDBStorage(unittest.TestCase):
         """
         storage.new(Product(id='54321', name='Goat'))
         storage.save()
+        # Object exists -> return correct object
         obj = storage.get(Product, 54321)
         self.assertEqual(obj.name, 'Goat')
+        # Object ID doesn't exist ->  return None
         obj = storage.get(Product, 98)
         self.assertIsNone(obj)
-        obj = storage.get()
-        self.assertIsNone(obj)
+        # No arguments -> return None
+        self.assertIsNone(storage.get())
+        # Only one argument -> return None
+        self.assertIsNone(storage.get(Product))
