@@ -9,6 +9,8 @@ from sqlalchemy import DateTime, String
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
+
+
 def Column(*args, **kwargs):
     """
     Makes changes to default values in the sqlalchemy Column class
@@ -18,21 +20,14 @@ def Column(*args, **kwargs):
     return Col(*args, **kwargs)
 
 
-
 class BaseModel():
     """
-    The parent class for all objects used in the project       
+    The parent class for all objects used in the application
     """
 
-    id = Column('id', String(45), primary_key=True, nullable=False)
-    created_at = Column('created_at',
-                        DateTime,
-                        default=datetime.utcnow,
-                        nullable=False)
-    updated_at = Column('updated_at',
-                        DateTime,
-                        default=datetime.utcnow,
-                        nullable=False)
+    id = Column('id', String(45), primary_key=True)
+    created_at = Column('created_at', DateTime, default=datetime.utcnow)
+    updated_at = Column('updated_at', DateTime, default=datetime.utcnow)
 
     def __init__(self, *args, **kwargs):
         self.id = str(uuid.uuid4())
@@ -68,7 +63,7 @@ class BaseModel():
         dictionary['updated_at'] = datetime.isoformat(self.updated_at)
         dictionary['__class__'] = self.__class__.__name__
         return dictionary
-    
+
     def save(self):
         """
         Saves an instance and any changes to the storage engine

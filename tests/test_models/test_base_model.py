@@ -31,13 +31,13 @@ class TestBaseModel(unittest.TestCase):
         """
         Tests that that a BaseModel instance is created correctly
         """
-        
+
         bm1 = BaseModel()
         self.assertIsInstance(bm1.created_at, datetime)
         self.assertEqual(bm1.updated_at, bm1.created_at)
         self.assertIsInstance(bm1.id, str)
         self.assertNotEqual(bm1.id, self.b1.id)
-        
+
         bm2_dict = {
                 'id': '1b3c52b7-1981-4e81-a75e-63af749ecb54',
                 'created_at': '2023-11-18T10:46:06.603808',
@@ -61,7 +61,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(self.b1.created_at, self.b1.updated_at)
         self.b1.update()
         self.assertGreater(self.b1.updated_at, self.b1.created_at)
-    
+
     def test_to_dict(self):
         """
         Tests the method that returns a dictionary representation of an

@@ -32,7 +32,6 @@ class TestUser(unittest.TestCase):
         """
         self.assertIsInstance(self.user1, BaseModel)
 
-
         user2_dict = {
                 'first_name': 'Mary-Jane',
                 'last_name': 'Skwach',

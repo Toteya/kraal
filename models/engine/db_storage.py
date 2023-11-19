@@ -40,12 +40,12 @@ class DBStorage:
                                                       password,
                                                       host,
                                                       database)
-        
+
         self.__engine = create_engine(db_url)
         if environ.get('KRAAL_ENV') == 'test':
             print("TESTING MODE")
             Base.metadata.drop_all(self.__engine)
-    
+
     def all(self, clss=None):
         """
         Returns a dictionary containing all objects of the specified class.
@@ -64,7 +64,6 @@ class DBStorage:
             key = '{}.{}'.format(obj.__class__.__name__, obj.id)
             obj_dict[key] = obj
         return obj_dict
-        
 
     def get(self, clss=None, id=None):
         """
@@ -74,7 +73,6 @@ class DBStorage:
             return None
         obj = self.__session.query(clss).filter(clss.id == id).first()
         return obj
-
 
     def new(self, obj=None):
         """
@@ -90,13 +88,12 @@ class DBStorage:
         if obj is not None:
             self.__session.delete(obj)
 
-    
     def save(self):
         """
         Commits all changes from the current session
         """
         self.__session.commit()
-    
+
     def load(self):
         """
         Loads data from the database and creates new session
@@ -106,7 +103,6 @@ class DBStorage:
                                        expire_on_commit=False)
         Session = scoped_session(session_factory)
         self.__session = Session
-        # print(self.__engine.url) 
 
     def close(self):
         """
