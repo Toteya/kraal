@@ -2,11 +2,11 @@
 """
 contains the BaseModel class definition
 """
-import uuid
 from datetime import datetime
 from sqlalchemy import Column as Col
 from sqlalchemy import DateTime, String
 from sqlalchemy.ext.declarative import declarative_base
+import uuid
 
 Base = declarative_base()
 
@@ -27,7 +27,7 @@ class BaseModel():
 
     id = Column('id', String(45), primary_key=True)
     created_at = Column('created_at', DateTime, default=datetime.utcnow)
-    updated_at = Column('updated_at', DateTime, default=datetime.utcnow)
+    updated_at = Column('updated_at', DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     def __init__(self, *args, **kwargs):
         self.id = str(uuid.uuid4())
@@ -68,10 +68,12 @@ class BaseModel():
         """
         Saves an instance and any changes to the storage engine
         """
-        pass
+        from models import storage
+        storage.new(self)
 
     def delete(self):
         """
         Deletes an instance from the storage engine
         """
-        pass
+        from models import storage
+        storage.delete(self)
