@@ -2,13 +2,16 @@
 """
 contains the Location class definition
 """
-from models.base_model import BaseModel
+from models.base_model import Base, BaseModel, Column
+from sqlalchemy import DECIMAL
 
 
-class Location(BaseModel):
+class Location(BaseModel, Base):
     """
-    Defines a User account object
+    Defines a Location object
     """
-    latitude = 0.0  # Use DECIMAL data type for MySQL
-    longitude = 0.0  # Use DECIMAL data type for MySQL
+    __tablename__ = 'locations'
+
+    latitude = Column('latitude', DECIMAL(10, 6))
+    longitude = Column('longitude', DECIMAL(10, 6))
     # alternatively use coordinates - POINT '2D SPACIAL INDEX' datatype

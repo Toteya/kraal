@@ -6,7 +6,10 @@ from models.base_model import Base
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 from os import environ
+from models.location import Location
+from models.offer import Offer
 from models.product import Product
+from models.request import Request
 from models.user import User
 
 

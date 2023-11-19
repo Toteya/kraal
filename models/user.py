@@ -17,7 +17,7 @@ class User(BaseModel, Base):
     last_name = Column('last_name', String(45))
     email = Column('email', String(45))
     password = Column('password', String(45))
-    # location_id = Column('location_id',
-    #                      String(45),
-    #                      ForeignKey('locations.id'))
+    location_id = Column('location_id',
+                         String(45),
+                         ForeignKey('locations.id'))
     guest_account = Column('guest_account', Boolean, default=True)

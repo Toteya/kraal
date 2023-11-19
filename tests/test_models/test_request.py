@@ -3,7 +3,7 @@
 Contains test for the Request class
 """
 from models.base_model import BaseModel
-from models.offer import Offer
+from models.request import Request
 import unittest
 
 
@@ -16,7 +16,7 @@ class TestRequest(unittest.TestCase):
         """
         Sets up the initial conditions for each test case
         """
-        self.req1 = Offer()
+        self.req1 = Request()
 
     def tearDown(self):
         """
