@@ -42,8 +42,9 @@ class DBStorage:
                                                       database)
         
         self.__engine = create_engine(db_url)
-        if environ.get('KRAAL_ENV'):
-            Base.metadata_drop_all(self.__engine)
+        if environ.get('KRAAL_ENV') == 'test':
+            print("TESTING MODE")
+            Base.metadata.drop_all(self.__engine)
     
     def all(self, clss=None):
         """

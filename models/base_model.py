@@ -4,10 +4,20 @@ contains the BaseModel class definition
 """
 import uuid
 from datetime import datetime
-from sqlalchemy import Column, DateTime, String
+from sqlalchemy import Column as Col
+from sqlalchemy import DateTime, String
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
+def Column(*args, **kwargs):
+    """
+    Makes changes to default values in the sqlalchemy Column class
+    Sets nullable default value to -> False
+    """
+    kwargs.setdefault('nullable', False)
+    return Col(*args, **kwargs)
+
+
 
 class BaseModel():
     """

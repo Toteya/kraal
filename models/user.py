@@ -2,8 +2,8 @@
 """
 contains the User class definition
 """
-from models.base_model import Base, BaseModel
-from sqlalchemy import Boolean, Column, ForeignKey, String
+from models.base_model import Base, BaseModel, Column
+from sqlalchemy import Boolean, ForeignKey, String
 
 class User(BaseModel, Base):
     """
