@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <main class="container justify-content-center mt-4">
+      <div class="row justify-content-center">
+        <div class="col-4">
+          <form>
+            <div class="mb-4">
+              <label for="inputFirstName" class="form-label">First Name</label>
+              <input type="email" class="form-control" id="inputFirstName" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-4">
+              <label for="inputLastName" class="form-label">Last Name</label>
+              <input type="email" class="form-control" id="inputLastName" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-4">
+              <label for="inputEmail" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp">
+              <div id="emailHelp" class="form-text">Your email will remain private.</div>
+            </div>
+            <div class="mb-4">
+              <label for="inputPassword" class="form-label">Password</label>
+              <input type="password" class="form-control" id="inputPassword">
+              <div id="passwordHelp" class="form-text">Must be at least 8 characters.</div>
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+          </form>
+        </div>
+      </div>
+    </main>
+{% endblock content %}
