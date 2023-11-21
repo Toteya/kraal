@@ -13,14 +13,15 @@ class User(BaseModel, Base):
     """
     __tablename__ = 'users'
 
-    username = Column('username', String(45))
     first_name = Column('first_name', String(45))
     last_name = Column('last_name', String(45))
+    display_name = Column('username', String(45), nullable=True)
     email = Column('email', String(45))
     password = Column('password', String(45))
     location_id = Column('location_id',
                          String(45),
-                         ForeignKey('locations.id'))
+                         ForeignKey('locations.id'),
+                         nullable=True)
     guest_account = Column('guest_account', Boolean, default=True)
 
     requests = relationship('Request', backref='user', cascade='all, delete')
