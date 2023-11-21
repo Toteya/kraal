@@ -27,7 +27,7 @@ class BaseModel():
 
     id = Column('id', String(45), primary_key=True)
     created_at = Column('created_at', DateTime, default=datetime.utcnow)
-    updated_at = Column('updated_at', DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    updated_at = Column('updated_at', DateTime, default=datetime.utcnow)
 
     def __init__(self, *args, **kwargs):
         self.id = str(uuid.uuid4())
@@ -63,13 +63,6 @@ class BaseModel():
         dictionary['updated_at'] = datetime.isoformat(self.updated_at)
         dictionary['__class__'] = self.__class__.__name__
         return dictionary
-
-    def save(self):
-        """
-        Saves an instance and any changes to the storage engine
-        """
-        from models import storage
-        storage.new(self)
 
     def delete(self):
         """
