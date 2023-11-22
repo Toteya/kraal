@@ -6,6 +6,7 @@ from models.base_model import Base
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 from os import environ
+from models.category import Category
 from models.location import Location
 from models.offer import Offer
 from models.order import Order
@@ -22,12 +23,13 @@ class DBStorage:
     __engine = None
     __session = None
     __classes = {
-        'location': Location,
-        'offer': Offer,
-        'order': Order,
-        'product': Product,
-        'request': Request,
-        'user': User
+        'Category': Category,
+        'Location': Location,
+        'Offer': Offer,
+        'Order': Order,
+        'Product': Product,
+        'Request': Request,
+        'User': User
     }
 
     def __init__(self):
