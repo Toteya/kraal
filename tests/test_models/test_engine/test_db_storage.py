@@ -50,7 +50,6 @@ class TestDBStorage(unittest.TestCase):
         Tests the method that returns an object based on the specified
         class and object id
         """
-        
         dairy = Category(name='Livestock')
         storage.new(dairy)
         storage.save()
@@ -82,4 +81,4 @@ class TestDBStorage(unittest.TestCase):
         obj.delete()
         storage.save()
         count_after = len(storage.all())
-        self.assertLess(count_after, count_before - 1)
+        self.assertLess(count_after, count_before)

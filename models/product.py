@@ -14,7 +14,6 @@ class Product(BaseModel, Base):
     __tablename__ = 'products'
 
     name = Column('name', String(45))
-    unit = Column('unit', String(10), default='kg')
     category_id = Column('category_id', String(45), ForeignKey('categories.id'))
 
     requests = relationship('Request', backref='product')
