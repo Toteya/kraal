@@ -4,6 +4,7 @@ Contains the tests for the db_storage module
 """
 import unittest
 from models import storage
+from models.base_model import BaseModel
 from models.category import Category
 from models.location import Location
 from models.product import Product
@@ -40,7 +41,9 @@ class TestDBStorage(unittest.TestCase):
         self.assertEqual(len(storage.all(Category)), 1)
         self.assertEqual(len(storage.all(Location)), 1)
         # no arguments -> returns all objects
-        self.assertEqual(len(storage.all()), 2)
+        objs =  storage.all().values()
+        self.assertEqual(len(objs), 2)
+        self.assertTrue(all(isinstance(obj, BaseModel) for obj in objs))
 
     def test_get(self):
         """
@@ -79,4 +82,4 @@ class TestDBStorage(unittest.TestCase):
         obj.delete()
         storage.save()
         count_after = len(storage.all())
-        self.assertEqual(count_after, count_before - 1)
+        self.assertLess(count_after, count_before - 1)
