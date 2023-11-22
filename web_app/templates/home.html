@@ -1,77 +1,54 @@
 {% extends 'layout.html' %}
 {% block content %}
-    <main class="container-md">
-      <div class="row m-3">
-        <h1>Welcome to AgraCul</h1>
-        <h4>Your one stop farmer's marketplace</h4>
-      </div>
-      <div id="carouselPosts" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="row my-5 justify-content-center">
-              <div class="col-4">
-                <div class="card h-100">
-                  <img
-                    src="https://picsum.photos/id/124/300/245"
-                    alt=""
-                    class="card-img-top"
-                  />
-                </div>
-              </div>
-              <div class="col-4">
-                <div class="card h-100">
-                  <h5 class="card-header">Post</h5>
+    <main>
+      <div class="container">
+        <div class="row mt-3">
+          <div class="col-md-8">
+            <p class="h3">Recent Posts</p>
+            {% for i in range(10) %}
+              <!-- <div class="container-fluid"> -->
+                <div class="card mx-auto my-3" style="width: 20rem; height:30rem;">
+                  <img src="https://picsum.photos/id/21{{i}}/300/200" class="card-img-top" alt="...">
                   <div class="card-body">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus aliquam error laborum. Obcaecati distinctio recusandae repellendus unde sed eaque incidunt.
+                    <h5 class="card-title">Title</h5>
+                    <p class="card-text">
+                      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta odio asperiores dignissimos consectetur nulla dicta.
+                    </p>
                   </div>
-                  <a href="#" class="btn btn-primary btn-sm m-2">Order</a>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">An item</li>
+                  </ul>
+                  <div class="card-body">
+                    <a href="#" class="card-link">View</a>
+                  </div>
                 </div>
-              </div>
-            </div>
+              <!-- </div> -->
+            {% endfor %}
+            
           </div>
-          <div class="carousel-item">
-            <div class="row my-5 justify-content-center">
-              <div class="col-4">
-                <div class="card h-100">
-                  <img
-                    src="https://picsum.photos/id/123/300/245"
-                    alt=""
-                    class="card-img-top"
-                  />
-                </div>
-              </div>
-              <div class="col-4">
-                <div class="card h-100">
-                  <h5 class="card-header">Post</h5>
-                  <div class="card-body">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus aliquam error laborum. Obcaecati distinctio recusandae repellendus unde sed eaque incidunt.
-                  </div>
-                  <a href="#" class="btn btn-primary btn-sm m-2">Order</a>
-                </div>
-              </div>
+          <div class="col-md-4 sticky-top">
+            <div class="row sticky-top">
+              <p>Request a Product</p>
+              <form>
+                <select class="form-select" aria-label="Select product type">
+                  <option selected>All</option>
+                  <option value="0">Dairy</option>
+                  <option value="1">Livestock</option>
+                  <option value="2">Fruit & Vegs</option>
+                </select>
+                <select class="form-select" aria-label="Select product">
+                  <option selected>Tomatoes</option>
+                  <option value="0">Potatoes</option>
+                  <option value="1">Onions</option>
+                  <option value="2">Watermelon</option>
+                </select>
+                <input class="form-control form-control-sm" type="text" placeholder="Quantity" aria-label="Enter product quantity">
+                <label for="customRange1" class="form-label">Search for producers within</label>
+                <input type="range" class="form-range" id="customRange1">
+              </form>
             </div>
-          </div>
-          <div class="carousel-item">
-            <div class="row my-5 justify-content-center">
-              <div class="col-4">
-                <div class="card h-100">
-                  <img
-                    src="https://picsum.photos/id/125/300/245"
-                    alt=""
-                    class="card-img-top"
-                  />
-                </div>
-              </div>
-              <div class="col-4">
-                <div class="card h-100">
-                  <h5 class="card-header">Post</h5>
-                  <div class="card-body">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus aliquam error laborum. Obcaecati distinctio recusandae repellendus unde sed eaque incidunt.
-                  </div>
-                  <a href="#" class="btn btn-primary btn-sm m-2">Order</a>
-                </div>
-              </div>
-            </div>
+            
+            
           </div>
         </div>
       </div>

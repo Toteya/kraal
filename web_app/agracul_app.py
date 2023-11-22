@@ -12,14 +12,14 @@ def welcome():
     """
     Routes to the welcome page
     """
-    return render_template('home.html')
+    return render_template('index.html')
 
 @app.route('/home', strict_slashes=False)
 def home():
     """
     Routes to the home page
     """
-    return render_template('main.html')
+    return render_template('home.html')
 
 @app.route('/login', strict_slashes=False)
 def login():

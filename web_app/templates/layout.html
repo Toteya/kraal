@@ -9,14 +9,14 @@
     <title>AgraCul</title>
     <!-- <link rel="icon" href="./favicon.ico" type="image/x-icon"> -->
   </head>
-  <body>
-    <header class="container-fluid">
+  <body class="bg-light">
+    <header class="container-fluid bg-success-subtle">
       <div class="row">
         <div class="col-8 my-2">
           <a class="nav-link active" aria-current="page" href="/">AgraCul</a>
         </div>
         <div class="col-4">
-          <ul class="nav">
+          <ul class="nav justify-content-evenly">
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="signup">Sign Up</a>
             </li>
@@ -24,10 +24,6 @@
               <a class="nav-link" href="login">Log In</a>
             </li>
           </ul>
-          <!-- <div class="row g-2">
-            <button id="signup" type="button" class="col btn btn-outline-primary btn-sm m-3">Sign Up</button>
-            <button id="login" type="button" class="col btn btn-outline-primary btn-sm m-3">Login</button>
-          </div> -->
       </div>
     </header>
     {% block content %}{% endblock %}

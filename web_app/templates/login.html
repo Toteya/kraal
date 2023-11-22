@@ -1,24 +1,22 @@
 {% extends 'layout.html' %}
 {% block content %}
     <main class="container justify-content-center mt-4">
-      <div class="row justify-content-center">
-        <div class="col-4">
-          <form>
-            <div class="mb-4">
-              <label for="inputEmail" class="form-label">Email address</label>
-              <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-4">
-              <label for="inputPassword" class="form-label">Password</label>
-              <input type="password" class="form-control" id="inputPassword">
-            </div>
-            <div class="mb-4 form-check">
-              <input type="checkbox" class="form-check-input" id="formCheck">
-              <label class="form-check-label" for="formCheck">Keep me signed in</label>
-            </div>
-            <button type="submit" class="btn btn-primary">Log in</button>
-          </form>
-        </div>
+      <div class="col-4 mx-auto">
+        <form>
+          <div class="mb-4">
+            <label for="inputEmail" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-4">
+            <label for="inputPassword" class="form-label">Password</label>
+            <input type="password" class="form-control" id="inputPassword">
+          </div>
+          <div class="mb-4 form-check">
+            <input type="checkbox" class="form-check-input" id="formCheck">
+            <label class="form-check-label" for="formCheck">Keep me signed in</label>
+          </div>
+          <button type="submit" class="btn btn-primary">Log in</button>
+        </form>
       </div>
     </main>
 {% endblock content %}
