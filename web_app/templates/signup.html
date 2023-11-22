@@ -2,14 +2,14 @@
 {% block content %}
     <main class="container justify-content-center mt-4">
       <div class="col-md-4 mx-auto">
-        <form>
+        <form id="signupForm" action="home">
           <div class="mb-4">
             <label for="inputFirstName" class="form-label">First Name</label>
-            <input type="email" class="form-control" id="inputFirstName" aria-describedby="emailHelp">
+            <input type="text" class="form-control" id="inputFirstName" aria-describedby="emailHelp">
           </div>
           <div class="mb-4">
             <label for="inputLastName" class="form-label">Last Name</label>
-            <input type="email" class="form-control" id="inputLastName" aria-describedby="emailHelp">
+            <input type="text" class="form-control" id="inputLastName" aria-describedby="emailHelp">
           </div>
           <div class="mb-4">
             <label for="inputEmail" class="form-label">Email address</label>
@@ -21,7 +21,7 @@
             <input type="password" class="form-control" id="inputPassword">
             <div id="passwordHelp" class="form-text">Must be at least 8 characters.</div>
           </div>
-          <button type="submit" class="btn btn-primary">Register</button>
+          <button type="submit" class="btn btn-primary">Sign up</button>
         </form>
       </div>
     </main>

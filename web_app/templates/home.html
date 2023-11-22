@@ -30,25 +30,27 @@
             <div class="row sticky-top">
               <p>Request a Product</p>
               <form>
-                <select class="form-select" aria-label="Select product type">
+                <select class="form-select my-2" aria-label="Select product type">
                   <option selected>All</option>
                   <option value="0">Dairy</option>
                   <option value="1">Livestock</option>
                   <option value="2">Fruit & Vegs</option>
                 </select>
-                <select class="form-select" aria-label="Select product">
-                  <option selected>Tomatoes</option>
-                  <option value="0">Potatoes</option>
-                  <option value="1">Onions</option>
-                  <option value="2">Watermelon</option>
-                </select>
-                <input class="form-control form-control-sm" type="text" placeholder="Quantity" aria-label="Enter product quantity">
-                <label for="customRange1" class="form-label">Search for producers within</label>
+                <input class="form-control my-2" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
+                <datalist id="datalistOptions">
+                  <option value="Tomatoes">
+                  <option value="Watermelons">
+                  <option value="Oranges">
+                  <option value="Potatoes">
+                  <option value="Onions">
+                </datalist>
+                <label for="enterQuantity" class="form-label my-2">Quantity</label> 
+                <input class="form-control form-control-sm" id="enterQuantity" type="text" aria-label="Enter product quantity">
+                <label for="customRange1" class="form-label mt-3">Search for producers within</label>
                 <input type="range" class="form-range" id="customRange1">
+                <button class="btn btn-primary mt-2" type="submit">Request</button>
               </form>
             </div>
-            
-            
           </div>
         </div>
       </div>
