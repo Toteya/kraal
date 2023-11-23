@@ -72,3 +72,11 @@ class BaseModel():
         """
         from models import storage
         storage.delete(self)
+
+    def save(self):
+        """
+        Saves the instance to the current database session
+        """
+        from models import storage
+        storage.new(self)
+        storage.save()
