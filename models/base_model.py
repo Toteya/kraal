@@ -3,6 +3,7 @@
 contains the BaseModel class definition
 """
 from datetime import datetime
+import hashlib
 from sqlalchemy import Column as Col
 from sqlalchemy import DateTime, String
 from sqlalchemy.ext.declarative import declarative_base
@@ -47,6 +48,12 @@ class BaseModel():
                     continue
                 if hasattr(self, key):
                     setattr(self, key, value)
+            if kwargs.get('password') and isinstance(self.password, str):
+                try:
+                    hash_object = hashlib.md5(bytes.fromhex(self.password))
+                except Exception:
+                    hashed_pwd = hashlib.md5(self.password.encode())
+                    self.password = hashed_pwd.hexdigest()
 
     def update(self):
         """
