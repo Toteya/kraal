@@ -39,7 +39,6 @@ def users():
         obj = User(**data)
         obj.save()
         return jsonify(obj.to_dict()), 201
-    
 
 # @app_views.route('/users')
 # def user

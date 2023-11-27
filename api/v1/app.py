@@ -11,7 +11,8 @@ import os
 app = Flask(__name__)
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 app.register_blueprint(app_views)
-cors = CORS(app, resources={r"/api/v1/*": {"origins": "*"}})
+# cors = CORS(app, resources={r"/api/v1/*": {"origins": "*"}})
+cors = CORS(app)
 
 @app.teardown_appcontext
 def close_session(error=None):
